@@ -19,6 +19,7 @@
 %% Required packages                                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{float}
 % 1.5" left margin, 1" right,top,bottom margins
 \RequirePackage[top=1in,bottom=1in,left=1.5in,right=1in]{geometry}
 
@@ -60,9 +61,6 @@
 % for underline fonts
 \RequirePackage[normalem]{ulem}
 
-% for using font closer to Times New Roman (instead of "genuine" Roman of LaTeX). Thanks to Sagar Rajendran for pointing out
-\RequirePackage{mathptmx}
-
 % for more clever way of referencing (must be loaded after hyperref package)
 \RequirePackage[noabbrev]{cleveref}
 
@@ -77,7 +75,7 @@
 \RequirePackage{glossary-tree}
 
 % reference, let all entries start with numbers
-\RequirePackage[backend=bibtex,style=numeric]{biblatex}
+\RequirePackage[backend=bibtex,style=ieee]{biblatex}
 
 % appendix
 \RequirePackage{appendix}
@@ -113,6 +111,7 @@
 
 % Table of Contents, List of Figures, and List of Table entries are properly tab
 % filled
+
 \setlength{\cftsecindent}{0em}
 \setlength{\cftsubsecindent}{1.25em}
 \setlength{\cftsubsubsecindent}{2.5em}
@@ -213,8 +212,8 @@
 \renewcommand{\thesection}{\arabic{section}}
 
 % change the numbering of figures and tables (Figure 1 --> Figure 1-1)
-\renewcommand{\thefigure}{\thesection-\arabic{figure}}
-\renewcommand{\thetable}{\thesection-\arabic{table}}
+\renewcommand{\thefigure}{\arabic{figure} }
+\renewcommand{\thetable}{\arabic{table}}
 
 % format List of Figures and List of Tables as "Figure X.X" and "Table X.X"
 % report body use section and subsection numbering
@@ -263,6 +262,7 @@
         \normalsize{\printstudentnumber}\\
         \normalsize{\printuserid}\\
         \normalsize{\printterm\:\printprogram}\\
+        \ \\
         \normalsize{\today}\\
         \vspace*{\baselineskip}
         \normalsize{\printconfidential}\\
@@ -315,11 +315,6 @@
 \renewcommand{\huge}{\@setfontsize\huge{16pt}{19.2}}
 \renewcommand{\Huge}{\@setfontsize\Huge{18pt}{21.6}}
 \newcommand{\HUGE}{\@setfontsize\HUGE{20pt}{24}}
-
-% reset the figure and table number at each section (or after Table 1-2, the
-% table in Section 2 becomes Table 2-3 without resetting)
-\@addtoreset{figure}{section}
-\@addtoreset{table}{section}
 
 % redefine \section* without changing \section
 \let\old@section\section

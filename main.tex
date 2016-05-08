@@ -165,6 +165,9 @@ The major conclusions in this report are... .
 
 The major recommendations in this report are... .
 
+% hack to fix TOC top margins
+\newgeometry{top=0in}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ************************************************************************** %%
 %% *                           Table of Contents                            * %%
@@ -194,6 +197,9 @@ The major recommendations in this report are... .
 %% *                                  Body                                  * %%
 %% ************************************************************************** %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% undo TOC top margin alteration
+\restoregeometry
 
 \body
 
