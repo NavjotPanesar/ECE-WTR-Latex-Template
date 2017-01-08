@@ -63,6 +63,16 @@
 \loadglsentries{gls}
 \glsaddall
 \addbibresource{reference}
+\usepackage{xpatch}
+
+% For references that don't have an author, removes the parentheses.
+\xpatchbibdriver{online}
+  {\printtext[parens]{\usebibmacro{date}}}
+  {\iffieldundef{year}
+    {}
+    {\printtext[parens]{\usebibmacro{date}}}}
+  {}
+  {\typeout{There was an error patching biblatex-ieee (specifically, ieee.bbx's @online driver)}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Make sure the following block contains the correct information               %
